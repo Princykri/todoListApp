@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1><%= heading %></h1>
+    <div class="box">
+       
+        <% data.forEach(function(item){ %>
+            <form action="/del" method="post">
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value="<%=item._id%>"  onChange="this.form.submit()">
+                    <p ><%= item.name%></p>
+                   
+                </div>
+                <input type="hidden" value="<%=heading%>" name="listName">
+            </form>
+           
+        <% })%>
+        
+        <form class="item"  action="/add" method="post">
+            <input type="text" name="newItem" id="New Item" autocomplete="off">
+            <button type="submit" name="list" class="btn" value="<%=heading%>" >+</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>
