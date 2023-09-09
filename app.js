@@ -4,6 +4,8 @@ const app =express();
 import mongoose from "mongoose";
 import _ from "lodash";
 
+const port =process.env.PORT || 3030;
+
 app.use(express.static("public"));
 app.set("view engine","ejs")
 app.use(bodyparser.urlencoded({extended:true}))
@@ -155,6 +157,6 @@ app.post("/del",(req,res)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("server is Running")
 })
